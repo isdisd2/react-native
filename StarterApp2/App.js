@@ -9,10 +9,12 @@ import {
     Pressable,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Flex from "./flex";
-import Card from "./cardTemplate";
-import RouteMainApp from "./routeMainApp";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Flex from "./src/flex";
+import Card from "./src/cardTemplate";
+import RouteMainApp from "./src/routeMainApp";
+import Emploees from "./src/emploees";
+import Menu from "./src/menu";
+import "./App.css";
 
 const styles = StyleSheet.create({
     container: {
@@ -60,7 +62,15 @@ export default function App() {
     return (
         <>
             <View style={styles.container}>
+                <Menu
+                    links={[
+                        { name: "Flex", link: "flex" },
+                        { name: "Card", link: "card" },
+ 
+                    ]}
+                />
                 <RouteMainApp />
+                <Emploees />
                 <Text>{colorScheme.toUpperCase().split("").join(" - ")}</Text>
                 <StatusBar style="auto" />
                 <Counters />
@@ -112,7 +122,6 @@ class Counters extends Component {
                 {counter.name} <Counter startValue={counter.startValue} />
             </Text>
         ));
-
         return <>{generateCounters}</>;
     }
 }
