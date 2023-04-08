@@ -19,6 +19,7 @@ const FlexDirectionBasics = () => {
 };
 
 const PreviewLayout = ({
+    children,
     label,
     values,
     selectedValue,
