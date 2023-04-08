@@ -19,10 +19,10 @@ const FlexDirectionBasics = () => {
 };
 
 const PreviewLayout = ({
+    children,
     label,
     values,
     selectedValue,
-    children,
     setSelectedValue,
 }) => (
     <View style={{ padding: 10, flex: 1 }}>
