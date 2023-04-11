@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const FlexDirectionBasics = () => {
     const [flexDirection, setflexDirection] = useState("column");
-
+        
     return (
         <PreviewLayout
             label="flexDirection"

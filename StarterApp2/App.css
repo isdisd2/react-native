@@ -37,3 +37,37 @@
     transform: rotate(360deg);
   }
 }
+
+.buttonModal {
+  background-color: #61dafb;
+  border-radius: 5px;
+}
+
+.flexEmployee {
+  display: "flex";
+  flex-flow: "row nowrap";
+  background-color: #91daab;
+}
+
+.navigation {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  background-color: #85896a;
+}
+
+.navigation:hover {
+  background-color: #25796a;
+}
+.button {
+  background-color: #282c34;
+}
+
+@media all and (max-width: 500px) {
+  .navigation {
+    flex-flow: column;
+    justify-content: flex-end;
+    ;
+    padding: 1px;
+  }
+}

@@ -8,24 +8,17 @@ import {
     Pressable,
 } from "react-native";
 import "../App.css";
+import { NavLink } from "react-router-dom";
 
 class Menu extends Component {
     render() {
         const { links } = this.props;
         const generateItems = links.map((item) => {
-            return <MenuItem item={item} />;
+            return <MenuItem key={item.name} item={item} />;
         });
         return (
             <>
-                <div
-                    style={{
-                        display: "flex",
-                        flexFlow: "row nowrap",
-                        margin: "5px",
-                    }}
-                >
-                    {generateItems}
-                </div>
+                <div className="navigation">{generateItems}</div>
             </>
         );
     }
@@ -33,16 +26,20 @@ class Menu extends Component {
 
 function MenuItem({ item }) {
     return (
-        <div
+        <NavLink
             style={{
                 margin: "10px 5px",
                 padding: "5px 15px",
-                backgroundColor: "#ad7",
+                backgroundColor: "#1d7",
             }}
             key={item.name}
+            to={item.link}
+            className={({isActive})=> {
+                
+            }}
         >
             {item.name}
-        </div>
+        </NavLink>
     );
 }
 
