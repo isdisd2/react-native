@@ -7,6 +7,7 @@ import {
     useColorScheme,
     Pressable,
     TextInput,
+    SafeAreaView,
 } from "react-native";
 // import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -27,45 +28,57 @@ function EmployeeEdit(props) {
             >
                 Edit
             </button>
-            
+
             <Modal
                 show={show}
                 onHide={handleClose}
                 backdrop="static"
-                keyboard={false}
+                keyboard={true}
             >
                 <Modal.Header closeButton>
                     <Modal.Title>Update employee</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            handleClose();
-                            props.updateEmployee(props.id, name, role);
-                        }}
-                        id="editmodal"
-                    >
-                        <label>Name</label>
+                    <SafeAreaView>
                         <TextInput
+                            editable
+                            placeholder="Name..."
                             id="name"
-                            value={props.name}
-                            onChange={setName}
-                            editable={true}
+                            label="Name"
+                            // value={props.name}
+                            onChange={(e) => {
+                                setName(e.target.value);
+                            }}
+                            activeUnderlineColor="green"
+                            underlineColor="purple"
                         />
-                        <label>Role</label>
+
                         <TextInput
+                            editable
+                            placeholder="Role..."
+                            label="Role"
                             id="role"
-                            value={props.role}
-                            onChange={setRole}
+                            // value={props.role}
+                            onChange={(e) => {
+                                setRole(e.target.value);
+                            }}
                         />
-                    </form>
+                    </SafeAreaView>
                 </Modal.Body>
                 <Modal.Footer>
                     <button form="editmodal" onClick={handleClose}>
                         Close
                     </button>
-                    <button form="editmodal">Update</button>
+                    <button
+                        form="editmodal"
+                        onClick={(e) => {
+                            // e.preventDefault();
+                            handleClose();
+                            props.updateEmployee(props.id, name, role);
+                        }}
+                    >
+                        Update
+                    </button>
                 </Modal.Footer>
             </Modal>
         </>

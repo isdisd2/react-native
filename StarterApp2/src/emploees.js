@@ -17,17 +17,16 @@ function Emploees() {
         console.log(id, newName, newRole);
         const updatedEmployee = employes.map((item) => {
             if (item.id == id) {
-                return { ...item, name: newName, role: newRole };
+                let xxx = { ...item, name: newName, role: newRole };
+                return xxx;
             }
             return item;
         });
         setEmployes(updatedEmployee);
     }
-    
+
     function newEmployee(name, role, image) {
-        const newEmployee = {id: uuidv4(),
-            name, role, img: image
-        };
+        const newEmployee = { id: uuidv4(), name, role, img: image };
         setEmployes([...employes, newEmployee]);
     }
 
@@ -55,7 +54,7 @@ function Emploees() {
                             );
                         })}
                     </div>
-                    <EmploeeAdd newEmployee={newEmployee}/>
+                    <EmploeeAdd newEmployee={newEmployee} />
                 </>
             ) : (
                 <p>You cannot see employes</p>
